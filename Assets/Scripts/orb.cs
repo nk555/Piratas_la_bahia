@@ -25,4 +25,6 @@ public class orb : MonoBehaviour
     public string get_type(){
         return this.orb_type;
     }
+
+
 }

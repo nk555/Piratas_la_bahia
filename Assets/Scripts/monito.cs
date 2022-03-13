@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class monito : MonoBehaviour
 {
-    private List<orb> orbs= new List<orb>();
+    private List<string> orbs= new List<string>();
     private Vector3 speed= new Vector3(3,1.5f,0);
     private float cooldown_time = 0.3f;
     private float cooldown=0f;
@@ -14,11 +14,13 @@ public class monito : MonoBehaviour
     private Vector3 original_direction=new Vector3(0,1,0);
     private Vector3 direction = new Vector3(0,1,0);
     private bool pull=false;
+    private score_object scoring;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        string new_orb="green";
+        this.orbs.Add(new_orb);
     }
 
     // Update is called once per frame
@@ -28,8 +30,12 @@ public class monito : MonoBehaviour
         this.movement();
     }
 
-    public List<orb> get_orbs(){
+    public List<string> get_orbs(){
         return this.orbs;
+    }
+
+    public void remove_orbs(string ob){
+        this.orbs.Remove(ob);
     }
 
     private void movement(){
