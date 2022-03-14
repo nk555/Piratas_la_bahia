@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class score_object : MonoBehaviour
+public class orb_spawn : MonoBehaviour
 {
-    private int score=0;
-    public Text score_text;
+    public tile_controller controller;
+    public float cooldown_time = 3;
+    private float cooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +16,6 @@ public class score_object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.score_text.text="Score: "+score;
-    }
-
-    public void add_score(int scr){
-        this.score+=scr;
+        
     }
 }

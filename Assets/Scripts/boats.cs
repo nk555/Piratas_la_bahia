@@ -15,7 +15,7 @@ public class boats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoring=GameObject.Find("score").GetComponent<score_object>();
     }
 
     // Update is called once per frame
@@ -36,15 +36,11 @@ public class boats : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D player)
     {
-        Debug.Log("boat collision");
         monito moni=player.gameObject.GetComponent<monito>();
-        List<string> orbs= moni.get_orbs();
-        Debug.Log(orbs);
+        List<string> orbs= new List<string>(moni.get_orbs());
         foreach(string ob in orbs){
-            Debug.Log(score_dict[ob]);
             if(score_dict.ContainsKey(ob)){
                 scoring.add_score(score_dict[ob]);
-                Debug.Log(ob);
                 moni.remove_orbs(ob);
             }
         }

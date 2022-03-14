@@ -4,21 +4,60 @@ using UnityEngine;
 
 public class tile_controller : MonoBehaviour
 {
-    private List<tiles> tile_list;
-    private List<tiles> outer_tiles;
-    private List<tiles> inner_tiles;
-    private float cooldown_time= 240f;
+    public List<tiles> tile_list;
+    //public List<tiles> outer_tiles;
+    //public List<tiles> inner_tiles;
+    private float cooldown_time= 5f;
     private float cooldown=0f;
+    public List<tiles> inactive_tiles;
+    public List<tiles> active_tiles;
+    public int num_inac_tiles= 7;
     // Start is called before the first frame update
+    public int num_tiles=25;
     void Start()
     {
-        
+        active_tiles = new List<tiles>(tile_list);
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldown+=Time.deltaTime;
-        
+        if(cooldown>=cooldown_time){
+            cooldown=0;
+            this.activate_tiles();
+            this.inactive_tiles = new List<tiles>();
+            this.active_tiles = new List<tiles>(this.tile_list);
+            for(int i = 0; i< this.num_inac_tiles; i++){
+                int index=Random.Range(0, num_tiles);
+                this.inactive_tiles.Add(tile_list[index]);
+                this.active_tiles.Remove(tile_list[index]);
+            }
+            this.deactivate_tiles();
+        }
+    }
+
+    void activate_tiles(){
+        for(int i=0; i< this.inactive_tiles.Count; i++){
+            this.inactive_tiles[i].activate();
+        }
+    }
+
+    void deactivate_tiles(){
+        for(int i=0; i< this.inactive_tiles.Count; i++){
+            this.inactive_tiles[i].deactivate();
+        }
+    }
+    public bool valid_pos(Vector3 pos){
+        bool valid=false;
+        for(int i=0; i< this.active_tiles.Count; i++){
+            if(pos==this.active_tiles[i].gameObject.transform.position){
+                valid=true;
+            }
+        }
+        return valid;
+    }
+    public List<tiles> get_active_tiles(){
+        return this.active_tiles;
     }
 }
