@@ -5,7 +5,7 @@ using UnityEngine;
 public class monito : MonoBehaviour
 {
     private List<string> orbs= new List<string>();
-    private Vector3 speed= new Vector3(3,1.5f,0);
+    public Vector3 speed= new Vector3(3,1.5f,0);
     private float cooldown_time = 0.1f;
     private float cooldown=0f;
     private Vector3 pull_end;

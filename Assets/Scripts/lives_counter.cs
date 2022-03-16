@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class lives_counter : MonoBehaviour
 {
-    private int lives = 3;
+    public int lives = 3;
     public Sprite[] sprites;
     // Start is called before the first frame update
     void Start()

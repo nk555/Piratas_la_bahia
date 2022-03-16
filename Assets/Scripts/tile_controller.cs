@@ -7,7 +7,7 @@ public class tile_controller : MonoBehaviour
     public List<tiles> tile_list;
     //public List<tiles> outer_tiles;
     //public List<tiles> inner_tiles;
-    private float cooldown_time= 5f;
+    public float cooldown_time= 5f;
     private float cooldown=0f;
     public List<tiles> inactive_tiles;
     public List<tiles> active_tiles;
@@ -38,8 +38,8 @@ public class tile_controller : MonoBehaviour
     }
 
     void activate_tiles(){
-        for(int i=0; i< this.inactive_tiles.Count; i++){
-            this.inactive_tiles[i].activate();
+        for(int i=0; i< this.tile_list.Count; i++){
+            this.tile_list[i].activate();
         }
     }
 
@@ -51,7 +51,7 @@ public class tile_controller : MonoBehaviour
     public bool valid_pos(Vector3 pos){
         bool valid=false;
         for(int i=0; i< this.active_tiles.Count; i++){
-            if(pos==this.active_tiles[i].gameObject.transform.position){
+            if(Vector3.Distance(pos, this.active_tiles[i].gameObject.transform.position)<0.5){
                 valid=true;
             }
         }

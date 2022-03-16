@@ -32,4 +32,8 @@ public class tiles : MonoBehaviour
     public void set_orb(orb tile_orb){
         this.tile_orb=tile_orb;
     }
+
+    public Vector3 get_pos(){
+        return this.gameObject.transform.position;
+    }
 }

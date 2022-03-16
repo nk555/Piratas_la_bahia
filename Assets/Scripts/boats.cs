@@ -5,13 +5,13 @@ using UnityEngine;
 public class boats : MonoBehaviour
 {
     private Vector3 direction;
-    private Dictionary<string, int> score_dict= new Dictionary<string, int>()
+    public Dictionary<string, int> score_dict= new Dictionary<string, int>()
     {
         {"green", 5},
         {"blue", 5},
         {"red", 5}
     };
-    private score_object scoring;
+    public score_object scoring;
     // Start is called before the first frame update
     void Start()
     {
