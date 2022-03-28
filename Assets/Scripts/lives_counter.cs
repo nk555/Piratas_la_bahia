@@ -24,7 +24,14 @@ public class lives_counter : MonoBehaviour
         }
     }
 
-    void add_lives(int life){
+    public void add_lives(int life){
         this.lives+=life;
+        if (this.lives>=3){
+            this.lives=3;
+        }
+        if(this.lives<=0){
+            this.lives=0;
+        }
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[this.lives];
     }
 }

@@ -5,10 +5,26 @@ using UnityEngine;
 public class orb : MonoBehaviour
 {
     private string orb_type;
+    public Sprite[] sprites;
+    public Dictionary<string,int> sprite_dict = new Dictionary<string, int>()
+    {
+        {
+            "green", 0
+        },
+        {
+            "red", 1
+        },
+        {
+            "blue", 2
+        },
+        {
+            "bomb", 3
+        }
+    };
     // Start is called before the first frame update
     void Start()
     {
-        orb_type="green";
+        
     }
 
     // Update is called once per frame
@@ -19,6 +35,7 @@ public class orb : MonoBehaviour
 
     public void set_orb_type(string orb_type){
         this.orb_type=orb_type;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[sprite_dict[orb_type]];
     }
 
     public string get_type(){

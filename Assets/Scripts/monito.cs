@@ -15,6 +15,7 @@ public class monito : MonoBehaviour
     private Vector3 direction = new Vector3(0,1,0);
     private bool pull=false;
     public tile_controller controller;
+    public lives_counter live_counter;
 
 
     // Start is called before the first frame update

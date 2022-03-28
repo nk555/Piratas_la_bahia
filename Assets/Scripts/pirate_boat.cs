@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boats : MonoBehaviour
+public class pirate_boat : boats
 {
-    private Vector3 direction;
+    // Start is called before the first frame update
     public Dictionary<string, Dictionary<string, int>> score_dicts = new Dictionary<string, Dictionary<string, int>>()
     {
         {
@@ -53,19 +53,24 @@ public class boats : MonoBehaviour
             "pirate", 4
         }
     };
+    public float bomb_cooldown = 9f;
+    private float bomb_timer = 0f;
+    private lives_counter live_counter;
     public Dictionary<string, int> score_dict= new Dictionary<string, int>();
-    public Sprite[] sprites;
-    public score_object scoring;
-    // Start is called before the first frame update
     void Start()
     {
+        live_counter=GameObject.Find("lives").GetComponent<lives_counter>();
         scoring=GameObject.Find("score").GetComponent<score_object>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        bomb_timer+=Time.deltaTime;
+        if(bomb_timer>=bomb_cooldown){
+            live_counter.add_lives(-1);
+            bomb_timer=-100f;
+        }
     }
 
     public void set_dict(string type){
@@ -79,6 +84,12 @@ public class boats : MonoBehaviour
         int scr= score_dict[collected_orb.get_type()];
         this.scoring.add_score(scr);
     }
+
+    void explode(){
+        //this.gameObject.GetComponent<Sprite_Renderer>() ;
+        Destroy(this.gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D player)
     {
         monito moni=player.gameObject.GetComponent<monito>();
@@ -87,6 +98,7 @@ public class boats : MonoBehaviour
             if(score_dict.ContainsKey(ob)){
                 scoring.add_score(score_dict[ob]);
                 moni.remove_orbs(ob);
+                this.explode();
             }
         }
     }

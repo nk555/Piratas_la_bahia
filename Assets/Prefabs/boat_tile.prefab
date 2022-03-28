@@ -44,12 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046494abea5e3340920e3bdba608588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boat_types:
-  - green
-  - red
-  - blue
   spawner: {fileID: 0}
   boat_prefab: {fileID: 4660759952415155762, guid: 30e35ff1a3d913d40ad9e3d16b78a443, type: 3}
+  pirate_boat_prefab: {fileID: 4660759952415155762, guid: 951bee00198c32e428e4133fd1e7f934, type: 3}
 --- !u!212 &8230208404471781507
 SpriteRenderer:
   m_ObjectHideFlags: 0
