@@ -62,7 +62,7 @@ public class boat_spawner : MonoBehaviour
             while(this.inactive_boat == false){
                 this.tile_index=Random.Range(0, this.spawn_tiles.Count);
                 this.inactive_boat = !this.active_tiles.Contains(this.spawn_tiles[this.tile_index]);
-                this.type = this.boat_types[Random.Range(0, this.boat_types.Count)];
+                this.type = this.boat_types[Random.Range(0, this.boat_types.Count-1)];
             }
             this.spawn_tiles[this.tile_index].create_boat(this.type);
             this.active_tiles.Add(this.spawn_tiles[this.tile_index]);
