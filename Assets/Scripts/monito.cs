@@ -17,6 +17,7 @@ public class monito : MonoBehaviour
     public tile_controller controller;
     public lives_counter live_counter;
     public Sprite[] walk_sprites;
+    private int current_sprite = 0;
 
 
     // Start is called before the first frame update
@@ -40,6 +41,11 @@ public class monito : MonoBehaviour
     public void remove_orbs(string ob){
         this.orbs.Remove(ob);
     }
+
+    public void remove_one(string ob){
+        this.orbs.RemoveAt(this.orbs.IndexOf(ob));
+    }
+
     public void add_orb(string ob){
         this.orbs.Add(ob);
     }
@@ -47,6 +53,9 @@ public class monito : MonoBehaviour
     private void movement(){
         detect_pull();
         release_move();
+        if(cooldown>=4*cooldown_time){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = walk_sprites[0];
+        }
     }
     void detect_pull(){
         if (pull== false){
@@ -57,6 +66,16 @@ public class monito : MonoBehaviour
                 }
             }    
         }
+    }
+
+    void sprite_change(){
+        if (current_sprite== 0 || current_sprite==2){
+            current_sprite=1;
+        }
+        else{
+            current_sprite=2;
+        }
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = walk_sprites[current_sprite];
     }
 
     void release_move(){
@@ -72,6 +91,7 @@ public class monito : MonoBehaviour
                     this.direction = Quaternion.Euler(0,0,this.angle)*this.original_direction;
                     this.gameObject.transform.rotation= Quaternion.Euler(0,0,this.angle);
                     Vector3 new_pos = this.gameObject.transform.position+Vector3.Scale(this.direction, this.speed);
+                    sprite_change();
                     if(this.controller.valid_pos(new_pos)){
                         this.gameObject.transform.position=new_pos;
                     }

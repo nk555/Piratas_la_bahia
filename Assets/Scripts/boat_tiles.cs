@@ -7,7 +7,7 @@ public class boat_tiles : MonoBehaviour
     public boat_spawner spawner;
     public GameObject boat_prefab;
     public GameObject pirate_boat_prefab;
-    private GameObject boat;
+    public GameObject boat;
     // Start is called before the first frame update
     void Start()
     {

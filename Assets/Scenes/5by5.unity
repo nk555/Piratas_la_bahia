@@ -1321,12 +1321,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 911716495}
     - target: {fileID: 3618369440839565380, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
+      propertyPath: bomb_cooldown
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618369440839565380, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
       propertyPath: spawn_cooldown_up
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3618369440839565380, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
       propertyPath: deactivate_cooldown
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3618369440839565380, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
       propertyPath: spawn_cooldown_down
@@ -1411,6 +1415,10 @@ PrefabInstance:
     - target: {fileID: 6067606682913130123, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
       propertyPath: num_orb_type
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6067606682913130123, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
+      propertyPath: cooldown_time
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6067606682913130123, guid: 25d2b0c3150df6146bd7000a1774dd1f, type: 3}
       propertyPath: orb_list.Array.size
@@ -1797,6 +1805,26 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 353165769}
+    - target: {fileID: 3245104436094266628, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
+      propertyPath: live_counter
+      value: 
+      objectReference: {fileID: 1520207705}
+    - target: {fileID: 3245104436094266628, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
+      propertyPath: walk_sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245104436094266628, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
+      propertyPath: walk_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8aaae493f2219d144bc8b8c04c7eec70, type: 3}
+    - target: {fileID: 3245104436094266628, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
+      propertyPath: walk_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9962b2aa25d302f4c8e514b6c5d9b309, type: 3}
+    - target: {fileID: 3245104436094266628, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
+      propertyPath: walk_sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f9e52177a4c15042b8e83e8b1f377b8, type: 3}
     - target: {fileID: 3562992299576289511, guid: e0e9fed4bbb61f5488b5524272bd6668, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2405,6 +2433,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6046494abea5e3340920e3bdba608588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1520207705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1595175073410769192, guid: 2a639337afb582d4eb59362055cbef92, type: 3}
+  m_PrefabInstance: {fileID: 863432857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cf6f712b262d342b807241b4b9560b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1535630126

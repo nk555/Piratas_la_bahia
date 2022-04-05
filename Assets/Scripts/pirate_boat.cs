@@ -97,7 +97,7 @@ public class pirate_boat : boats
         foreach(string ob in orbs){
             if(score_dict.ContainsKey(ob)){
                 scoring.add_score(score_dict[ob]);
-                moni.remove_orbs(ob);
+                moni.remove_one(ob);
                 this.explode();
             }
         }
