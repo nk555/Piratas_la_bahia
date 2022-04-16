@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.IO;
 
 public class score_object : MonoBehaviour
 {
-    private int score=0;
+    [SerializeField] private int score=0;
     public Text score_text;
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -17,6 +18,10 @@ public class score_object : MonoBehaviour
     void Update()
     {
         this.score_text.text="Score: "+score;
+    }
+
+    public int get_score(){
+        return this.score;
     }
 
     public void add_score(int scr){
